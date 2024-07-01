@@ -1,29 +1,33 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from cars.models import Car
 from cars.forms import CarModelFom
+from django.views.generic import ListView, CreateView, DetailView
 
-def cars_viwe(request):
-    cars = Car.objects.all().order_by('brand')  
-    search = request.GET.get('search')
-    
-    #cars = Car.objects.all() AQUI PEGARIA TODAS AS INFORMAÇÕES UTILIZANDO A FUNÇÃO >>ALL<<
-    if search:
-        cars = cars.filter(model__icontains = search) #AQUI ESTOU FAZENDO UM CONSULTA UTILIZANDO FILTRO
-    return render(request, 'cars.html', {'cars':cars})
 
-    """NO CÓDIGO ACIMA O USUARIO VAI BATER NA URL CARS, O SISTEMA VAI MOSTRAR A LISTA COMPLETA DE TODOS OS VEICULOS
-    MAS CASO O USUARIO PASSE UM FILTRO O SISTEMA MOSTRARÁ A INFORMAÇÃO FILTRADAS
-    """
+class CarLitView(ListView):
+    model = Car
+    template_name = 'cars.html'
+    context_object_name = 'cars'
 
-def new_car_view(request):
-    #CAPTURANDO OS DADOS DO FORM, QUE O USUARIO PREENCHEU
-    if request.method == 'POST':
-        new_car_form = CarModelFom(request.POST, request.FILES)
-        if new_car_form.is_valid():
-            new_car_form.save()
-            """new_car_form = CarForm()"""
-            return redirect('cars_list')
-    else:
+    def get_queryset(self):
+        cars = super().get_queryset().order_by('model')
+        search = self.request.GET.get('search')
+        if search:
+            cars = cars.filter(model__icontains = search)
+            #AQUI ESTOU FAZENDO UM CONSULTA UTILIZANDO FILTRO
+        return cars
 
-        new_car_form = CarModelFom()
-    return render(request, 'new_car.html', {'new_car_form': new_car_form})
+        #cars = Car.objects.all() AQUI PEGARIA TODAS AS INFORMAÇ��ES UTILIZANDO A FUNÇÃO >>ALL<<
+
+class NewCarCreateView(CreateView):
+    model = Car
+    form_class = CarModelFom
+    template_name = 'new_car.html'
+    success_url = '/cars/'
+
+
+class CarDatailView(DetailView):
+    model = Car
+    template_name = 'car_detail.html'
