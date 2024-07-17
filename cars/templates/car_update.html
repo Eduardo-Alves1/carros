@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <header>
+        <link rel="stylesheet" href="{% static 'css/update.css' %}">
+    </header>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Editar Carro</h1>
+        <table>
+            {{ form.as_table}} 
+        </table>
+       
+        
+        <div>
+            <div class="buttons-container">
+
+                {% if user.is_authenticated %}
+                    <input type="submit" value="Salvar Alterações" class = "btn btn-primary">
+                    <a href="{% url 'car_delete' pk=object.pk%}" class ="btn btn-danger">Deletar</a>
+                    <a href="{% url 'cars_list' %}" class = "btn btn-secondary">Cancelar</a>
+
+                    {% else %}
+                        <p>Você precisa estar logado para editar um carro.</p>
+                        <a href="{% url 'login' %}" class ="btn btn-primary">Login</a>
+    
+                {% endif %}
+            </div>
+        
+        </div>
+    
+    </form>
+
+
+{% endblock content %}  
