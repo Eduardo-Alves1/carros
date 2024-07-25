@@ -1,38 +1,47 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
-{% load humanize %}
-{% block content %}
-    <head>
-        <meta charset="UTF-8">
-        <title>Página de testes</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-  <form method="GET" action="{% url 'cars_list' %}">
-    <input type="text" name="search" placeholder="Buscar carro...">
-    <button type="submit">Buscar</button>
-  </form>
 
-  <div class="car-grid">
+{% load humanize %}
+
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link rel="stylesheet" href="{% static 'css/app-dark.css'%}">
+
+{% block body %}
+{% block content %}
+
+<div id="main">
+
+  <div class="page-heading">
+    <!--CARDES DOS VEÍCULOS-->
     {% if cars %}
       {% for car in cars %}
-      <a href= "{% url 'car_detail' car.pk %}">
-      
-        <div class="car-card">
-          {% if car.photo %}
-            <img src="{{ car.photo.url }}" alt="{{ car.model }} - {{ car.brand }}">
-          {% else %}
-            <p>Foto Indisponivél</p>
-          {% endif %}
+        <a href= "{% url 'car_detail' car.pk %}">
+          <div class="card" style="width: 18rem;">
+            {% if car.photo %}
+              <img src="{{ car.photo.url}}" class="card-img-top" alt=" {{ car.model }} - {{ car.brand }}">
+            {% else %}
+              <p>Foto Indisponivél</p>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ car.brand }} - {{ car.model }}</h5>
+              <p class="card-text"> Ano -  {{ car.factory_year }}</p>
+              <p class="card-text">R$ - {{ car.value | intcomma}}</p>
+            </div>
 
-          <h2>{{ car.brand }} {{ car.model }}</h2>
-          <p> Ano - {{ car.factory_year }}</p>
-          <p>  R$ {{ car.value | intcomma }}</p>
-        </div>
-
-      </a>
+          </div>
+        </a>
       {% endfor %}
-    {% else %}
-      <p class="no-results">Nenhum carro encontrado.</p>
-    {% endif %}
+      {% else %}
+        <h1>Nenhum veículo cadastrado</h1>
+      {% endif %}
+
   </div>
-{% endblock %}
+</div>
+
+
+
+
+
+{% endblock content%}
+
+{% endblock body %}

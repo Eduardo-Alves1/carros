@@ -7,9 +7,8 @@ dotenv.load_dotenv('.env')
 
 
 def get_car_ai_bio(model, brand, year):
-    GOOGLE_API_KEY = 'AIzaSyAgpKV3mXafs4M0ajhiZ9FG1XAjzfp6DPo'
     
-    genai.configure(api_key= GOOGLE_API_KEY)
+    genai.configure(api_key= os.getenv('GOOGLE_API_KEY'))
 
     generation = {
         'candidate_count': 1,

@@ -9,6 +9,7 @@ from accounts.views import register_view, login_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registers/',register_view, name='register'),
+    path('', login_view),
     path('login/',login_view, name='login'),
     path('logout/',logout_view, name='logout'),
     path('cars/', CarLitView.as_view(), name='cars_list'),
