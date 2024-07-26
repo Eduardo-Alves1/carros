@@ -1,33 +1,53 @@
 {% extends "base.html" %}
+{% load static %}
 
+<header>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app-dark.css'%}">
+
+</header>
 
 
 {% block content %}
 
 
-  
-  <div class="car-card">
+<div id="main">
+  <div class="page-heading jus">
+
+    <div class="card shadow shadow-lg justify-content-center" style="width: 60rem;">
       {% if object.photo %}
-        <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
-      
+      <div>
+        <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}" width="100%" style="position:center;">
+      </div>
+
       {% else %}
-        <p>Foto Indisponivél</p>
+      <p>Foto Indisponivél</p>
       {% endif %}
-      <h2>{{ object.brand }} {{ object.model }}</h2>
-      <p><strong>Ano de fabricação:</strong> {{ object.factory_year }}</p>
-      <p><strong>Ano do modelo:</strong> {{ object.model_year }}</p>
-      <p><strong>Placa:</strong> {{ object.plate }}</p>
-      <p><strong>Preço:</strong> R$ {{ object.value }}</p>
-      {% if object.description %}
+      <div class="card-title">
+        <h2>{{ object.brand }} {{ object.model }}</h2>
+      </div>
+      <div class="card-body font-extrabold">
+        <p><strong>Ano de fabricação:</strong> {{ object.factory_year }}</p>
+        <p><strong>Ano do modelo:</strong> {{ object.model_year }}</p>
+        <p><strong>Placa:</strong> {{ object.plate }}</p>
+        <p><strong>Preço:</strong> R$ {{ object.value }}</p>
+        {% if object.description %}
         <p><strong>Descrição:</strong> {{ object.description }}</p>
-      {% endif %}
-  </div>
-        {% if user.is_authenticated %}
-        
-          <div class="buttons-container">
-            <a href="{% url 'car_update' pk=object.pk%}" class ="btn btn-primary">Editar</a>
-            <a href="{% url 'car_delete' pk=object.pk%}" class ="btn btn-danger">Deletar Carro</a>
-          </div>
-        
         {% endif %}
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+
+    <div class="buttons">
+      <a href="{% url 'car_update' pk=object.pk%}" class="btn btn-primary btn-sm">Editar</a>
+      <a href="{% url 'car_delete' pk=object.pk%}" class="btn btn-danger btn-sm">Deletar Carro</a>
+      <a href="{% url 'cars_list'%}" class="btn btn-success btn-sm">Voltar</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endif %}
 {% endblock %}

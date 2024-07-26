@@ -16,7 +16,7 @@
     {% if cars %}
       {% for car in cars %}
         <a href= "{% url 'car_detail' car.pk %}">
-          <div class="card" style="width: 18rem;">
+          <div class="card " style="width: 18rem;">
             {% if car.photo %}
               <img src="{{ car.photo.url}}" class="card-img-top" alt=" {{ car.model }} - {{ car.brand }}">
             {% else %}

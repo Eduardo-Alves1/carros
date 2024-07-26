@@ -1,17 +1,131 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
+<header>
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app-dark.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</header>
 {% block content %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
 
-        <table>
-            {{ form.as_table }} 
-        </table>
+<div id="main">
+    <div class="page-heading">
 
-        <input type="submit" value="Cadastrar" class="btn btn-primary">  
 
-    
-    </form>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="car-model">Modelo</label>
+                    <div class="position-relative">
+                        {{ form.model|add_class:"form-control form-input input-required"|attr:'placeholder:Informe o Modelo do Carro'}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-car-front-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="first-name-icon">Marca do Veículo</label>
+                    <div class="position-relative">
+                        {{ form.brand|add_class:"form-control choices form-select"}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-check2-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{% endblock  %}
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="first-name-icon">Ano de Fabricação</label>
+                    <div class="position-relative">
+                        {{ form.factory_year|add_class:"form-control form-input input-required"|attr:'placeholder:Informe Ano de Fabricação'}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="first-name-icon">Ano Modelo</label>
+                    <div class="position-relative">
+                        {{ form.model_year|add_class:"form-control form-input input-required"|attr:'placeholder:Informe Ano do Modelo'}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="first-name-icon">Placa</label>
+                    <div class="position-relative">
+                        {{ form.plate|add_class:"form-control form-input input-required"|attr:'placeholder:Informe a Placa do Veículo'}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div class="form-group has-icon-left">
+                    <label for="car-value">Placa</label>
+                    <div class="position-relative">
+                        {{ form.value|add_class:"form-control form-input input-required"|attr:'placeholder:Informe o Valor do Veículo'}}
+                        <div class="form-control-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="form-group">
+                    <label for="formFile">Foto Veículo</label>
+                    <div class="position-relative">
+                        {{ form.photo|add_class:"form-control file formFile form-input input-required"|attr:'placeholder:Foto do Veículo'}}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div>
+                     <label for="first-name-icon">Descrição</label>
+                     {{ form.description|add_class:"form-control form-textarea"|attr:'placeholder:Informe uma Descrição do Veículo'}}
+                     <small class="form-text text-muted">A descrição do veículo será apresentada na página de detalhes.</small>
+
+                </div>
+            </div>
+
+
+
+            <input type="submit" value="Cadastrar" class="btn btn-primary">
+        </form>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
