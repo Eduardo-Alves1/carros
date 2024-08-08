@@ -24,8 +24,8 @@ class Car(models.Model):
         return self.model
     
 class CarInvetory(models.Model):
-    cars_count = models.IntegerField()
-    cars_value = models.FloatField()
+    cars_count = models.IntegerField(verbose_name="Carros em Estoque", blank= True, null= True)
+    cars_value = models.FloatField(verbose_name="Valor Total em do Estoque", blank= True, null= True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
