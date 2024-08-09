@@ -174,13 +174,13 @@
     --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-    --bs-body-font-family: "Nunito";
+    --bs-body-font-family: "Roboto";
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
-    --bs-body-color: #607080;
-    --bs-body-color-rgb: 96, 112, 128;
-    --bs-body-bg: #f2f7ff;
+    --bs-body-color: #ffff;
+    --bs-body-color-rgb: #002091;
+    --bs-body-bg: #fff;
     --bs-body-bg-rgb: 242, 247, 255;
     --bs-emphasis-color: #000;
     --bs-emphasis-color-rgb: 0, 0, 0;
@@ -192,7 +192,7 @@
     --bs-tertiary-color-rgb: 96, 112, 128;
     --bs-tertiary-bg: #f8f9fa;
     --bs-tertiary-bg-rgb: 248, 249, 250;
-    --bs-heading-color: #25396f;
+    --bs-heading-color: #002091;
     --bs-link-color: #435ebe;
     --bs-link-color-rgb: 67, 94, 190;
     --bs-link-decoration: underline;
@@ -5011,20 +5011,20 @@ fieldset:disabled .btn {
     --bs-card-spacer-y: 1rem;
     --bs-card-spacer-x: 1rem;
     --bs-card-title-spacer-y: .5rem;
-    --bs-card-title-color: ;
-    --bs-card-subtitle-color: ;
+    --bs-card-title-color: #f0f0d8 ;
+    --bs-card-subtitle-color: #f0f0d8;
     --bs-card-border-width: 1px;
-    --bs-card-border-color: rgba(0, 0, 0, .125);
+    --bs-card-border-color: #79ae92;
     --bs-card-border-radius: .7rem;
     --bs-card-box-shadow: -8px 12px 18px 0 rgba(25, 42, 70, .13);
     --bs-card-inner-border-radius: calc(.7rem - 1px);
     --bs-card-cap-padding-y: 1.5rem;
     --bs-card-cap-padding-x: 1.5rem;
-    --bs-card-cap-bg: white;
+    --bs-card-cap-bg: #000;
     --bs-card-cap-color: ;
     --bs-card-height: ;
-    --bs-card-color: ;
-    --bs-card-bg: #fff;
+    --bs-card-color: #5676b9;
+    --bs-card-bg: #a2beee;
     --bs-card-img-overlay-padding: 1rem;
     --bs-card-group-margin: .75rem;
     position: relative;
@@ -5339,7 +5339,7 @@ fieldset:disabled .btn {
 
 .accordion-body {
     padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x)
-}
+}Resgistrar
 
 .accordion-flush .accordion-collapse {
     border-width: 0
@@ -22362,7 +22362,7 @@ body .bi:before,
 
 .carousel-caption h5,
 .carousel-caption .h5 {
-    color: #fff
+    color: #002091
 }
 
 .card {
@@ -23056,7 +23056,7 @@ body .bi:before,
     top: 0;
     z-index: 10;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: #002091;
     bottom: 0;
     transition: left .7s cubic-bezier(.22, 1, .36, 1)
 }
@@ -23091,7 +23091,7 @@ body .bi:before,
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #25396f
+    color: #ffffff;
 }
 
 .sidebar-wrapper .menu .sidebar-link {
@@ -23103,7 +23103,7 @@ body .bi:before,
     border-radius: .5rem;
     transition: all .5s;
     text-decoration: none;
-    color: #25396f
+    color: #ffffff
 }
 
 .sidebar-wrapper .menu .sidebar-link svg,
@@ -23120,7 +23120,7 @@ body .bi:before,
 }
 
 .sidebar-wrapper .menu .sidebar-link:hover {
-    background-color: #f0f1f5
+    background-color: #305adc
 }
 
 .sidebar-wrapper .menu .sidebar-item {
@@ -23183,16 +23183,16 @@ body .bi:before,
 .sidebar-wrapper .menu .submenu .submenu-item a {
     padding: .7rem 2rem;
     display: block;
-    color: #25396f;
-    font-size: .85rem;
+    color: #ffff;
+    font-size: .99rem;
     font-weight: 600;
     letter-spacing: .5px;
-    transition: all .3s
+    transition: all .2s
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a:hover {
     margin-left: .3rem;
-    color: #435ebe
+    color: #ffff
 }
 
 .sidebar-item.has-sub,

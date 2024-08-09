@@ -379,7 +379,7 @@ html[data-bs-theme=dark] div:where(.swal2-container) div:where(.swal2-popup) {
     border: none;
     border-radius: 5px;
     background: #19191a;
-    color: #545454;
+    color: #537958;
     font-family: inherit;
     font-size: 1rem
 }
@@ -10063,7 +10063,7 @@ html[data-bs-theme=dark] .sidebar-wrapper .menu .submenu .submenu-item a {
     padding: .7rem 2rem;
     display: block;
     color: #9899ac;
-    font-size: .85rem;
+    font-size: .99rem;
     font-weight: 600;
     letter-spacing: .5px;
     transition: all .3s
