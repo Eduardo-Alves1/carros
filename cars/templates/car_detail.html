@@ -2,7 +2,7 @@
 
 <header>
   <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/app-dark.css'%}" />
+ 
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -10,21 +10,22 @@
     crossorigin="anonymous"
   />
 </header>
-
-{% block content %}
-
-  <div class="conteiner">
+{% block body %}
+<body style="padding-top: 56px;">
+  {% block content %}
+  
+  <div class="conteiner  justify-content-center align-items-center min-vh-100">
     <div class="row">
-      <div class="col-md-6 mx-auto">
-        <div class="card shadow shadow-lg justify-content-center">
+      <div class="col-6 mx-auto pt-5 ">
+        <div class="card shadow shadow-lg">
           {% if object.photo %}
             <img
               src="{{ object.photo.url }}"
               class="card-img-top"
               alt=" {{ object.brand }} {{ object.model }}"
-            />
-          
-          {% else %}
+              />
+              
+              {% else %}
             <p>Foto Indisponivél</p>
           {% endif %}
           <div class="card-body font-extrabold">
@@ -41,7 +42,7 @@
                 <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-outline-danger">Deletar</a>
                 <a href="{% url 'cars_list'%}" class="btn btn-outline-secondary">Voltar</a>
               </div>
-            
+              
             {% endif %}
 
           </div>
@@ -52,7 +53,15 @@
     </div>
 
   </div>
+  
 
 
-
-{% endblock %}
+  {% endblock content%}
+  {% block script %}
+  <!--BOOTSTRAP JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+  {% endblock script %}
+</body>
+{% endblock body %}
