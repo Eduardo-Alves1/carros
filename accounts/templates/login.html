@@ -17,6 +17,8 @@
         <!--ICONS-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+        <script src="https://kit.fontawesome.com/f57ddaae90.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="{% static 'css/app.css' %}">
         {% endblock sytle %}
     </header>
@@ -34,7 +36,7 @@
         <div class="conteiner d-flex justify-content-center align-items-center min-vh-100">
             
                 
-                    <div class="card p-4 mb-2 bg-transparent text-body shadow-lg p-4 mb-5 rounded opacity-75 w-60 shadwon " style="width: 100%; max-width: 400px;">
+                    <div class="card p-4 mb-2 bg-transparent text-body shadow-lg p-4 mb-5 rounded opacity-70 w-60 shadwon " style="width: 100%; max-width: 400px;">
                         
                         <div class="card-body align-items-center">
                                 <div class="card-title">
@@ -44,7 +46,7 @@
                             <form method="post">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3">
-                                    {{login_form.username |add_class:'form-control form-control-lg input-required id=floatingInput' |attr:'placeholder: Usuário' }}
+                                    {{login_form.username |add_class:'border border-black form-control form-control-lg input-required id=floatingInput bg-transparent' |attr:'placeholder: Usuário' }}
                                     <label for="floatingInput">Usuário</label>
 
                                 </div>
@@ -52,7 +54,7 @@
                                 <div class="form-floating mb-3">
 
                                     {{login_form.password.errors}}
-                                    {{login_form.password |add_class:'form-control form-control-lg input-required id=floatingInput' |attr:'placeholder: Senha'}}
+                                    {{login_form.password |add_class:'border border-black form-control form-control-lg input-required id=floatingInput bg-transparent' |attr:'placeholder: Senha'}}
                                     <label for="floatingInput" class="form-label">Senha</label>
                                     
                                 </div>
@@ -61,7 +63,18 @@
     
                                 
                             </form>
+                            <div class="d-flex align-items-start">
+                                <span class="mb-2 h6">Acesse os links abaixo.</span> 
+                            </div>
+                            <div>
 
+                                <a href="https://github.com/Eduardo-Alves1/carros"><i class="fa-brands fa-github" style="font-size: 2rem; color: white;"></i></a>
+
+                                <a href="https://www.linkedin.com/in/eduardo-alves-124320b9/"><i class="fa-brands fa-linkedin" style="font-size: 2rem; margin: 10px; color: blue;"></i></a>
+                                
+                            </div>
+                            
+                            
                         </div>
 
                     </div>
