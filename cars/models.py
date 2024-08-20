@@ -7,6 +7,7 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
+   
 
 # CREATING A TABLE OF CARS
 class Car(models.Model):

@@ -1,7 +1,8 @@
 {% extends "base.html" %} {% load static %}
 
 <header>
-  <link rel="ico" href="{% static 'img/favicon.ico' %}" type="img/x-icon">
+  <title>{% block title %} Detalhes {% endblock title%}</title>
+  <link rel="ico" href="{% static 'img/favicon.ico' %}" sizes="1024px" type="img/x-icon">
   <link rel="stylesheet" href="{% static 'css/app.css' %}" />
   
  
@@ -38,6 +39,17 @@
             <p><strong>Preço:</strong> R$ {{ object.value }}</p>
             <p><strong> KM:</strong> {{ object.km }}</p>
             {% if object.description %}
+            <p class="d-inline-flex gap-1">
+              <a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Descrição
+              </a>
+
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                {{ object.description }}
+              </div>
+            </div>
             
             
             {% endif %}

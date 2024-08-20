@@ -2,9 +2,11 @@ a {
     text-decoration: none !important;
 }
 
-body {
+body{
     font-family: 'Fira Sans', sans-serif;
+    padding: 50pt;  
     
+
   }
 
 .mark-conteiner{
