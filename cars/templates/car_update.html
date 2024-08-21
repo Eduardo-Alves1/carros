@@ -26,12 +26,12 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <body>
     {% block content %}
 
-    <div class="container  text-bg-warning my-10 p-5">
+    <div class="container border border-2 my-10 p-5">
         
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">
-                <h1 class="text-center">Novo Veículo</h1>
+                <h1 class="text-center">Editar Detalhes</h1>
                 
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <!--Modelo do VEículo-->
